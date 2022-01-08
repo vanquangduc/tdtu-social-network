@@ -44,6 +44,8 @@ export default function Announcements({announcement}) {
                 scroll="paper"
                 aria-labelledby="scroll-dialog-title"
                 aria-describedby="scroll-dialog-description"
+                maxWidth="lg"
+                fullWidth
             >
                 <DialogTitle id="scroll-dialog-title">{announcement.title}</DialogTitle>
                 <DialogContent dividers={true}>
@@ -59,7 +61,7 @@ export default function Announcements({announcement}) {
                 </div>
                 </DialogContent>
                 <DialogActions>
-                <Button onClick={handleClose}>Close</Button>
+                <Button onClick={handleClose}>Đóng</Button>
                 </DialogActions>
             </Dialog>
         </div>

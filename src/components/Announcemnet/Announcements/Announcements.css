@@ -56,8 +56,8 @@
 }
 
 .announcements-container{
-    width: 50vh;
-    height: 60vh;
+    
+    min-height: 60vh;
 }
 .announcements-sender{
     color: #0004ff;

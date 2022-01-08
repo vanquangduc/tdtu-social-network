@@ -48,6 +48,8 @@ function App() {
 
         <Route path="/announcement" element={  user ? <Announcement/> : <SigninPage />} />  
 
+        <Route path="/announcement/:categoryId" element={  user ? <Announcement/> : <SigninPage />} /> 
+
         <Route path="/announcement/create" element={  user && user.role === "faculty" ? <CreateAnnouncement/> : <SigninPage />} />
 
         <Route path="/announcement/create/:announceId" element={  user && user.role === "faculty" ? <CreateAnnouncement/> : <SigninPage />} />

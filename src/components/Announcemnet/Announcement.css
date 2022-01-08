@@ -4,9 +4,13 @@
 }
 .announcement-top{
     margin: 20px 200px;
-    height: 200px;
-    border: #62abff 1px solid;
+
 }
 .announcement-bottom{
     margin: 20px 200px;
+}
+.announcement-category{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 }

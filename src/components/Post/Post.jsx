@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { MoreVert, ThumbUpAlt, Comment, Settings, Send, Replay} from '@mui/icons-material'
-import { IconButton, MenuItem, Menu, ListItemIcon, Divider, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, DialogContentText, Button} from '@mui/material'
+import { IconButton, MenuItem, Menu, ListItemIcon, Box, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, DialogContentText, Button, TextField} from '@mui/material'
 import './Post.css'
 import { useState, useEffect, useContext, useRef } from "react";
 import axios from 'axios'
@@ -34,6 +34,15 @@ export default function Post({ post }) {
     
     const handleCloseDelConfirm = () => {
         setOpenDelConfirm(false);
+    };
+
+    const [openUpdatePost, setOpenUpdatePost] = useState(false);
+    const handleClickOpenUpdatePost = () => {
+        setOpenUpdatePost(true);
+    };
+    
+    const handleCloseUpdatePost = () => {
+        setOpenUpdatePost(false);
     };
 
     const [userPost, setUserPost] = useState({})
@@ -89,6 +98,28 @@ export default function Post({ post }) {
         }
     }
 
+    const [postText, setPostText] = useState("")
+    const updateHandle = async () => {
+        try{   
+            const postToUpdate = post
+            
+            postToUpdate.text = postText
+            
+            const updatedPost = await axios.put(SV + '/posts/' + post._id, postToUpdate)
+            console.log(updatedPost.data)
+            const payload = posts.map(p => {
+                if(p._id === updatedPost.data._id){
+                    return updatedPost.data
+                }
+                else return p
+            })
+            console.log(payload)
+            dispatch({type: "POST_SUCCESS", payload: payload})
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
     
 
     const fetchComment = async () => {
@@ -128,6 +159,7 @@ export default function Post({ post }) {
 
     const openCmtHandle = () => {
         setIsActive(true)
+        loadCmtHanlde()
         document.getElementById(post._id).focus()
     }
 
@@ -143,11 +175,13 @@ export default function Post({ post }) {
 
             try{
                 const res = await axios.post(SV + '/comments/', newCmt)
+                console.log(res.data)
                 setComments([...comments, res.data])
             }
             catch(err){
 
             }
+            commentRef.current.value = ''
         }
         else{
            
@@ -169,6 +203,27 @@ export default function Post({ post }) {
                     <Button onClick={handleCloseDelConfirm}>Cancel</Button>
                 </DialogActions>
             </Dialog>
+
+            <Dialog open={openUpdatePost} onClose={handleCloseUpdatePost}>
+                <DialogTitle>Cập nhật thông tin</DialogTitle>
+
+                <DialogContent>
+                    <Box
+                    component="form"
+                    sx={{
+                        '& .MuiTextField-root': { m: 2, width: 500, maxWidth: '100%', },
+                    }}
+                    autoComplete="off"
+                    >
+                        <TextField required id="outlined-required" defaultValue={post.text}  onChange={e => setPostText(e.target.value)} />
+                    </Box>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={updateHandle} type='submit'>Cập nhật</Button>
+                    <Button onClick={handleCloseUpdatePost} >Hủy</Button>
+                </DialogActions>
+            </Dialog>
+
             <div className="post-top">
                 <Link to={'/profile/' + userPost.emailname}>
                 <div className="post-top-left">
@@ -217,18 +272,18 @@ export default function Post({ post }) {
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
-                    Delete post
+                    Xóa bài viết
                     </MenuItem>     
                     : null
                     }
                     
                     {user._id === post.userId 
                     ?
-                    <MenuItem>
+                    <MenuItem onClick={handleClickOpenUpdatePost}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
-                    Edit Post
+                    Sửa bài viết
                     </MenuItem>
                     
                     : null
@@ -239,26 +294,7 @@ export default function Post({ post }) {
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
-                    Report
-                    </MenuItem>
-                    <Divider/>
-                    <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Add another account
-                    </MenuItem>
-                    <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Settings
-                    </MenuItem>
-                    <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Logout
+                    Báo cáo
                     </MenuItem>
 
                 </Menu>
@@ -287,19 +323,19 @@ export default function Post({ post }) {
                 <div className="post-bottom-item">
                     <div className="post-bottom-like-comment" onClick={likeClickHandle}>
                         <ThumbUpAlt style={{ fill: 'rgb(58, 174, 252)' }}/>
-                        <span className="post-bottom-like-comment-text">Like</span>
+                        <span className="post-bottom-like-comment-text">Thích</span>
                     </div>
                     <div className="post-bottom-like-comment" onClick={openCmtHandle}>
                         <Comment/>
-                        <span className="post-bottom-like-comment-text">Comment</span>
+                        <span className="post-bottom-like-comment-text">Bình luận</span>
                     </div>
                 </div>
                 <hr />
             </div>
             <div className="post-comments">
                 <div className="post-load-comments">
-                    <p className='post-load-comments-text' onClick={reloadCmtHanlde}>Reload <Replay className='load-comments-icon' /></p>
-                    <p className='post-load-comments-text' onClick={loadCmtHanlde}><Replay className='load-comments-icon' /> Load</p>
+                    <p className='post-load-comments-text' onClick={reloadCmtHanlde}>Tải lại <Replay className='load-comments-icon' /></p>
+                    <p className='post-load-comments-text' onClick={loadCmtHanlde}><Replay className='load-comments-icon' /> Tải</p>
                 </div>
                 {comments.map((comment) => (
                     <Comments key={comment._id} comment={comment} />

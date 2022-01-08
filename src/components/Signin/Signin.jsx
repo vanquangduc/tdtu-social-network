@@ -108,8 +108,8 @@ export default function Signin() {
                 <h1 className="signin-logo">TDTU</h1>
                 <div className="toggle-box">
                     <div className={toggle}></div>
-                    <button type="button" className={toggleBtnStd} onClick={studentSignin}>Students</button>
-                    <button type="button" className={toggleBtnOth} onClick={othersSignin}>Others</button>
+                    <button type="button" className={toggleBtnStd} onClick={studentSignin}>Sinh viên</button>
+                    <button type="button" className={toggleBtnOth} onClick={othersSignin}>Khác</button>
                 </div>
 
 
@@ -130,7 +130,7 @@ export default function Signin() {
 
                     <GoogleLogin 
                         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                        
+                        buttonText='Đăng nhập với Google'
                         onSuccess={googleRespone}
                         onFailure={googleRespone}
                         cookiePolicy={'single_host_origin'}

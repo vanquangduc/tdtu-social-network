@@ -61,7 +61,7 @@ export default function Share() {
                         <input type="text" className="share-input-box" placeholder={"What's on your mind " + user.username + "?"} ref={statusTextRef} />
                     </div>
                     <div >
-                        <button className="share-btn" type='submit'>Share</button>
+                        <button className="share-btn" type='submit'>Đăng</button>
                     </div>
                 </div>
                 
@@ -69,7 +69,7 @@ export default function Share() {
                     <div className="share-options">
                         <label htmlFor="file" className="share-option-item">
                             <Photo htmlColor="#20ab00" className="share-option-item-icon"/>
-                            <span className="share-option-item-text">Photo or Video</span>
+                            <span className="share-option-item-text">Ảnh hoặc Video</span>
                         </label>
                         <input type="file" name="file" id="file" style={{display: "none"}} onChange={(e) => setFile(e.target.files[0])} />
                         <div className="share-option-item">
@@ -78,7 +78,7 @@ export default function Share() {
                         </div>
                         <div className="share-option-item">
                             <AddReaction htmlColor="#fcba03" className="share-option-item-icon"/>
-                            <span className="share-option-item-text">Feeling</span>
+                            <span className="share-option-item-text">Cảm xúc</span>
                         </div>
                         
                     </div>

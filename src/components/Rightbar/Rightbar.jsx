@@ -6,6 +6,7 @@ import { SocketContext } from '../../context/SocketContext'
 
 export default function Rightbar() {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
+    const SV = process.env.REACT_APP_SV_HOST
 
     const { user } = useContext(AuthContext)
     const { socket } = useContext(SocketContext)
@@ -15,7 +16,7 @@ export default function Rightbar() {
 
     useEffect(() => {
         const fetchUser = async () =>{
-            const res = await axios.get(process.env.REACT_APP_SV_HOST + '/users/all')
+            const res = await axios.get(SV + '/users/all')
             setAllUsers(res.data)
         }
         fetchUser()
@@ -33,7 +34,7 @@ export default function Rightbar() {
 
     return (
         <div className="rightbar">
-            <div className="rightbar-title">User Online ({onlineUsersInfo.length})</div>
+            <div className="rightbar-title">Trực tuyến ({onlineUsersInfo.length})</div>
             <ul className="rightbar-online-list">
                 {onlineUsersInfo.map(o => (
                     <li className="rightbar-online-list-items">

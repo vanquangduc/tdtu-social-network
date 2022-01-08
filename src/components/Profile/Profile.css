@@ -66,6 +66,18 @@
     justify-content: center;
     text-align: center;
 }
+.pw{
+    color: rgb(34, 111, 255);
+    cursor: pointer;
+}
+.pw:hover{
+    color: #559eff;
+    text-decoration: underline;
+}
+.change-password-message{
+    color: red;
+    margin-left: 20px;
+}
 
 .profile-avatar-upload{
     text-align: center;

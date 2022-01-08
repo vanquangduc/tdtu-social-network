@@ -72,20 +72,20 @@ export default function Navbar() {
                 
                 <div className="navbar-search">
                     <Search className="navbar-search-icon"/>
-                    <input placeholder="Search for people" className="navbar-search-bar" />
+                    <input placeholder="Tìm kiếm người dùng" className="navbar-search-bar" />
                 </div>
             </div>
             <div className="navbar-center">
                 <Link to="/">
                 <div className="navbar-link">
                     <Home/>
-                    <div className="navbar-link-text">Homepage</div>
+                    <div className="navbar-link-text">Trang chủ</div>
                 </div>
                 </Link>
                 <Link to="/announcement">
                 <div className="navbar-link">
                     <NotificationImportant/>
-                    <div className="navbar-link-text">Announcement</div>
+                    <div className="navbar-link-text">Thông báo</div>
                 </div>
                 </Link>
             </div>
@@ -307,7 +307,7 @@ export default function Navbar() {
                 >
                     <Link to={"/profile/" + user.emailname}>
                         <MenuItem>
-                        <Avatar src={PF+user.avatar} /> My Account
+                        <Avatar src={PF+user.avatar} /> Trang cá nhân
                         </MenuItem>
                     </Link>
                     
@@ -318,7 +318,7 @@ export default function Navbar() {
                             <ListItemIcon>
                                 <PersonAdd fontSize="small" />
                             </ListItemIcon>
-                            Create account
+                            Tạo tài khoản Phòng/Khoa
                             </MenuItem>
                         </Link> 
                         
@@ -328,7 +328,7 @@ export default function Navbar() {
                             <ListItemIcon>
                             <AddAlert fontSize="small" />
                             </ListItemIcon>
-                            My announment
+                            Quản lý thông báo
                             </MenuItem>
                         </Link>
                         : null
@@ -338,14 +338,14 @@ export default function Navbar() {
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
-                    Settings
+                    Cài Đặt
                     </MenuItem>
                     
                     <MenuItem onClick={logoutHandler} >
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>
-                    Logout
+                    Đăng xuất
                     </MenuItem>
                 
                     
