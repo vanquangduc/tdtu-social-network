@@ -15,7 +15,7 @@ import { io } from 'socket.io-client'
 
 function App() {
   const SV = process.env.REACT_APP_SV_HOST
-  const ENDPOINT = 'ws://https://tdtu-social-nw-server.herokuapp.com/'
+  const ENDPOINT = 'https://tdtu-social-nw-server.herokuapp.com/'
   
   const userToken = localStorage.getItem('userToken')
   const {user, dispatch} = useContext(AuthContext)
