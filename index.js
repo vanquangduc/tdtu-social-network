@@ -22,13 +22,6 @@ const corsOptions = {
     origin: true, 
     credentials: true,
 };
-
-const io = socketio(server, {
-    cors: {
-        origin: 'https://tdtu-social-nw.web.app/'
-    },
-})
-
 app.use("/images", express.static(path.join(__dirname, "public/images")))
 app.use(cors(corsOptions))
 app.use(express.json())
@@ -116,7 +109,11 @@ const server = app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`)
 })
 
-
+const io = socketio(server, {
+    cors: {
+        origin: 'https://tdtu-social-nw.web.app/'
+    },
+})
 
 let users = []
 const addUser = (userId, socketId) => {
