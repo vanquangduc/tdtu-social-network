@@ -18,31 +18,53 @@ router.get('/', async(req, res) => {
     }
 })
 
+router.post('/compare/:id', async (req, res) => {
+    if(req.body._id == req.params.id ){
+        try{
+            const user = await User.findById(req.body._id)
+            const comparePassword = await bcrypt.compare(req.body.password, user.password)
+            if(comparePassword){
+                return res.status(200).json({code: 'success'})
+            }
+            return res.status(200).json({code: 'failed'})
+        }
+        catch(err){
+            return res.status(500).json(err)
+        }
+    }
+    else{
+        return res.status(400).json("you can update only your account")
+    }
+})
+
 //update user
 router.put('/:id', async(req, res) => {
-    console.log(req.body._id)
     if(req.body._id == req.params.id ){
         if(req.body.password){
             try{
                 const salt = await bcrypt.genSalt(10)
                 req.body.password = await bcrypt.hash(req.body.password, salt)
+                await User.findByIdAndUpdate(req.params.id, {
+                    $set: req.body
+                })
+                return res.status(200).json({code: 'success'})
             }
             catch (err){
-                res.status(500).json(err)
+                return res.status(500).json(err)
             }
         }
         try{
             const user = await User.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             })
-            res.status(200).json(user)
+            return res.status(200).json(user)
         }
         catch (err){
-            res.status(500).json(err)
+            return res.status(500).json(err)
         }
     }
     else{
-        res.status(400).json("you can update only your account")
+        return res.status(400).json("you can update only your account")
     }
 })
 

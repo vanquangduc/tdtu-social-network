@@ -18,10 +18,12 @@ router.post('/', async(req, res) => {
 router.put('/:id', async(req, res) => {
     try{
         const post = await Post.findById(req.params.id)
+        console.log(req.body)
         if(post.userId == req.body.userId){
-            const updated = await Post.findByIdAndUpdate(req.params.id, {
+            await Post.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             })
+            const updated = await Post.findById(req.params.id)
             res.status(200).json(updated)
         }
         else{
