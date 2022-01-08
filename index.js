@@ -111,7 +111,7 @@ const server = app.listen(PORT, () => {
 
 const io = socketio(server, {
     cors: {
-        origin: 'https://tdtu-social-nw.herokuapp.com/'
+        origin: 'https://tdtu-social-nw.web.app/'
     },
 })
 
