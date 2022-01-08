@@ -1,0 +1,135 @@
+/* Sidebar*/
+.sidebar{
+    flex: 2;
+    height: calc(100vh - 50px);
+    position: sticky;
+    top: 50px;
+    overflow-y: auto;
+
+}
+
+.sidebar-items{
+    padding: 20px;
+}
+/* Sidebar user*/
+.sidebar-user{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+.sidebar-user:hover{
+    background-color: aliceblue;
+}
+.sidebar-user-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.sidebar-user-name{
+    margin-left: 10px;
+    font-weight: bold;
+}
+/* Sidebar list item*/
+.sidebar-list{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+.sidebar-list-item{
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+.font-awesome{
+    margin: 3px 3px 3px 0px;
+    font-size: 32px !important;
+    width: 40px !important;
+}
+.sidebar-list-item:hover{
+    background-color: aliceblue;
+}
+.sidebar-list-item-icon{
+    font-size: 40px !important;
+}
+.sidebar-list-item-text{
+    margin-left: 10px;
+    font-weight: bold;
+}
+.sidebar-line{
+    margin: 10px 0 0 10px;
+    width: 100%;
+}
+
+.sidebar-title{
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.sidebar-group{
+    list-style-type: none;
+    margin: 20px;
+    padding: 0;
+}
+.sidebar-group-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.sidebar-group-item-avatar{
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+    position: relative;
+}
+
+.sidebar::-webkit-scrollbar {
+	width: 14px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+	background-clip: content-box;
+	border: 4px solid transparent;
+	border-radius: 7px;
+	box-shadow: inset 0 0 0 10px;
+}
+.sidebar::-webkit-scrollbar-button {
+	width: 0;
+	height: 0;
+	display: none;
+}
+.sidebar::-webkit-scrollbar-corner {
+	background-color: transparent;
+}
+
+@media only screen and (max-width: 1000px){
+    .sidebar-user{
+        justify-content: center;
+    }
+    .sidebar-user-name{
+        display: none;
+    }
+    .sidebar-list-item{
+        justify-content: center;
+    }
+    .sidebar-list-item-text{
+        display: none;
+    }
+    .sidebar-title{
+        display: none;
+    }
+    .sidebar-group{
+        display: none;
+    }
+    .sidebar-line{
+        display: none;
+    }
+}

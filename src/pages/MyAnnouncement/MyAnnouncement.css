@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+
+.MA-container{
+    flex: 8;
+    top: 50px;
+    margin: 30px 20px;
+}
+
+h1{
+    margin-top:10px
+}
+
+#table-title{
+    background-color: wheat
+}
+
+.feed-end{
+    margin-top: 20px;
+    color: rgb(128, 128, 128);
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-announcement{
+    display: flex;
+    justify-content: end;
+}

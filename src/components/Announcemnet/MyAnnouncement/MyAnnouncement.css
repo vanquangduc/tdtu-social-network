@@ -1,0 +1,8 @@
+#info{
+    width: 100%;
+}
+.announce-overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+}

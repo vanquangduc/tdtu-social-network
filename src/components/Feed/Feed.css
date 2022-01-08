@@ -1,0 +1,21 @@
+/* New feed*/
+.feed{
+    flex: 8;
+}
+.feed-items{
+    padding: 20px 200px;
+}
+.feed-end{
+    margin-top: 20px;
+    color: rgb(128, 128, 128);
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 1000px){
+    .feed-items{
+        padding: 20px;
+    }
+}

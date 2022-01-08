@@ -1,0 +1,184 @@
+a{
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbarContainer{
+    height: 50px;
+    width: 100%;
+    background-color: dodgerblue;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* Navbar leftside*/
+.navbar-left{
+    flex: 4;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    font-size: 30px;
+    margin-top: 0 !important;
+    margin-left: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.navbar-search{
+    margin-left: 30px;
+    width: 50%;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+.navbar-search-icon{
+    margin-left: 10px;
+}
+.navbar-search-bar{
+    border: none;
+    width: 80%;
+}
+.navbar-search-bar:focus{
+    outline: none;
+}
+
+/* Navbar center*/
+.navbar-center{
+    flex: 4;
+    display: flex;
+    justify-content: center;
+}
+.navbar-link{
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+.navbar-link:hover{
+    background-color: rgb(59, 157, 255);
+}
+.navbar-link-text{
+    margin-left: 10px;
+}
+
+/* Navbar rightside*/
+.navbar-right{
+    flex: 4;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: right;
+}
+.navbar-icons{
+    display: flex;
+}
+.navbar-icons-item{
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.navbar-icons-item:hover{
+    background-color: rgb(59, 157, 255);
+}
+.navbar-icons-item-icon{
+    font-size: 30px !important;
+}
+.navbar-icons-item-badge{
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 1px;
+    top: 2px;
+    font-size: 15px;
+}
+/* Navbar rightside user contain*/
+.navbar-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 5px;
+    border-radius: 40px;
+}
+.navbar-user:hover{
+    background-color: rgb(59, 157, 255);
+}
+.navbar-user-name{
+    margin-right: 5px;
+}
+.navbar-avatar{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.navbar-user-menu{
+    
+}
+.navbar-user-menu .MuiAvatar-root {
+    width: 32;
+    height: 32;
+    margin-left: -0.5;
+    margin-right: 1;
+}
+.navbar-user-menu:before {
+    content: '""';
+    display: 'block';
+    position: 'absolute';
+    top: 0;
+    right: 14;
+    width: 10;
+    height: 10;
+    background-color: 'background.paper';
+    transform: 'translateY(-50%) rotate(45deg)';
+    z-index: 0;
+}
+
+@media only screen and (max-width: 1000px){
+    .navbar-search{
+        width: 40px;
+    }
+    .navbar-search-icon{
+        cursor: pointer;
+    }
+    .navbar-search-bar{
+        display: none;
+    }
+
+    .navbar-link-text{
+        display: none;
+    }
+    .navbar-right{
+        flex: 4;
+    }
+    .navbar-center{
+        flex: 4;
+        
+    }
+    .navbar-user-name{
+        display: none;
+    }
+}

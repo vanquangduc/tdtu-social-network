@@ -1,0 +1,85 @@
+.submit-btn{
+    color: white;
+    margin-top: 30px;
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(to right,#3778c2,#43e4c1);
+    position: absolute;
+    top: 400px;
+    width: 300px;
+    left: 300px;
+}
+.submit-btn:hover{
+    background: linear-gradient(to right,#6291c7,#74d8c2);
+}
+.register-form form input{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 2px solid #a1cee91f;
+    outline: none;
+    background: transparent;
+}
+
+.register-logo{
+    text-align: center;
+    margin-top: 30px;
+    color: #3778c2;
+}
+
+.register-form{
+    width: 1000px;
+    height: 550px;
+    position: relative;
+    margin: 8% auto;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.register{
+    left: 50px;
+    position: absolute;
+}
+
+.register-input-group{
+    top: 50px;
+    position: absolute;
+    width: 270px;
+    transition: .7s;
+}
+
+.register-back{
+    position: absolute;
+    top: 45px;
+    left: 45px;
+}
+.register-checkbox-group1{
+    position: absolute;
+    left: 320px;
+    width: 270px;
+    top: 50px;
+}
+
+.register-checkbox-group1 input{
+    width: auto !important;
+    margin: 6px 0px !important;
+}
+
+.register-checkbox-group2{
+    position: absolute;
+    left: 650px;
+    width: 270px;
+    top: 50px;
+}
+
+.register-checkbox-group2 input{
+    width: auto !important;
+    margin: 6px 0px !important;
+}

@@ -1,0 +1,75 @@
+/*Share*/
+.share{
+    background-color: white;
+    border-radius: 10px;
+}
+/*Share top*/
+.share-top{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.share-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.share-input{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    margin-left: 20px;
+    border: none;
+    background-color: #f0f2f5;
+}
+.share-input-box{
+    margin-left: 20px;
+    align-items: center;
+    border: none;
+    background-color: #f0f2f5;
+    width: 85%;
+    font-size: 18px;
+}
+.share-input-box:focus{
+    outline: none;
+}
+.share-btn{
+    margin-left: 20px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(58, 174, 252);
+    color: #fff;
+    font-weight: 500;
+    padding: 0px 10px;
+}
+.share-btn:hover{
+    background-color: rgb(108, 184, 255);
+}
+/*Share bottom*/
+.share-bottom{
+    padding: 0px 20px 10px 20px;
+}
+.share-options{
+    display: flex;
+    justify-content: space-around;
+}
+.share-option-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.share-option-item:hover{
+    background-color: rgb(205, 226, 233);
+}
+.share-option-item-icon{
+    font-size: 40px !important;
+}
