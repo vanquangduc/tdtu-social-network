@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
     },
     background:{
         type: String,
-        default: "background/nodejs.png"
+        default: "background/noBackground.jpg"
     },
     role:{
         type: String,
